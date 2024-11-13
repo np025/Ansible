@@ -5,10 +5,15 @@ Set up three servers: one as the master server and the other two as nodes.
 change settings --> behavior(ansible) --> connection (time -10)
 ```
 sudo su
+
 sudo yum update
+
 sudo amazon-linux-extras install epel -y
+
 sudo yum --enablerepo epel install ansible -y
+
 ansible --version
+
 python --version
 ```
 ### Create a user
@@ -126,4 +131,12 @@ cd /home/ansible
 ```
 After installing software from ansible server check here using its name --version
 
-
+**More Ad-Hoc commands:**
+ansible all --list-host   --> it will list all the hosts
+ansible group_name -m ping -  to check whether we can connect to each server or not
+Ansible group_name -a “free -h”
+ansible group_name -a "sudo yum install git -y" --> install git in all nodes (-a – ad-hoc command)
+ansible group_name [0] -a "sudo yum install git -y"  --> install for node1 
+ansible group_name [1] -a "sudo yum install git -y"  --> install for node2 
+ansible group_name -a "sudo yum remove git -y"
+ansible group_name -a “sudo apt/yum update” → update all servers using ad-hoc command
