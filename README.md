@@ -5,15 +5,11 @@ Set up three servers: one as the master server and the other two as nodes.
 change settings --> behavior(ansible) --> connection (time -10)
 ```
 sudo su
-
 sudo yum update
-
+sudo yum install ansible
 sudo amazon-linux-extras install epel -y
-
 sudo yum --enablerepo epel install ansible -y
-
 ansible --version
-
 python --version
 ```
 ### Create a user
